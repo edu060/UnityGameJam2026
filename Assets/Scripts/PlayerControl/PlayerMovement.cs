@@ -8,6 +8,7 @@ public class PlayerMovement : MovementController
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private PlayerJump _playerJump;
+    [SerializeField] private PlayerSprint _playerSprint;
 
     private Vector2 _inputDirection;
 
@@ -38,7 +39,9 @@ public class PlayerMovement : MovementController
 
         Direction = right * _inputDirection.x + forward * _inputDirection.y;
 
-        Vector3 horizontalVelocity = Direction * MovementSpeed;
+        float currentSpeed = _playerSprint.GetSpeed(MovementSpeed);
+
+        Vector3 horizontalVelocity = Direction * currentSpeed;
 
         float verticalVelocity = _playerJump.CalculateVerticalVelocity();
 
