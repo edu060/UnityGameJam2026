@@ -119,7 +119,7 @@ public class Imp : Enemy
         if (projectile == null || projectileSpawn == null) return;
 
         Vector3 origin = projectileSpawn.position;
-        Quaternion aim = Quaternion.LookRotation(Player.position - origin);
+        Quaternion aim = Quaternion.LookRotation(Target.position - origin);
         Instantiate(projectile, origin, aim);
     }
 }

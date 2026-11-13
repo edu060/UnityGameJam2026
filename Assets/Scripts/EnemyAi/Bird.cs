@@ -95,7 +95,7 @@ public class Bird : Enemy
         stateTimer -= Time.deltaTime;
         if (stateTimer > 0f) return;
 
-        Vector3 toPlayer = Player.position - transform.position;
+        Vector3 toPlayer = Target.position - transform.position;
         toPlayer.y = 0f;
 
         chargeDirection = toPlayer.sqrMagnitude > 0.001f ? toPlayer.normalized : transform.forward;

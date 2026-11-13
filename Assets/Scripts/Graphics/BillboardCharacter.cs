@@ -15,6 +15,14 @@ public class BillboardCharacter : MonoBehaviour
         UpdateBillboard();
     }
 
+    private void Awake()
+    {
+        if(_camera == null)
+        {
+            _camera = Camera.main.transform;
+        }
+    }
+
     private void UpdateSprite()
     {
         Vector3 direction =
