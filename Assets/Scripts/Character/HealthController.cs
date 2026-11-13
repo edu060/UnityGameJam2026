@@ -46,7 +46,6 @@ public class HealthController : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage, Vector3 position, float KnockbackStrenght)
     {
-        Debug.Log(damage);
         _health -= damage;
 
         if(_health <= 0)
