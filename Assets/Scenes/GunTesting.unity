@@ -1063,6 +1063,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
+      propertyPath: _poolConfigs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
+      propertyPath: _poolConfigs.Array.data[1].Id
+      value: SoundEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
+      propertyPath: _poolConfigs.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 7207814165954325262, guid: 6680dfb1f01e79e459692d765b7c40b9, type: 3}
+    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
+      propertyPath: _poolConfigs.Array.data[1].MaxSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
+      propertyPath: _poolConfigs.Array.data[1].InitialSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6688663062754261783, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
       propertyPath: m_Name
       value: '{System}'
@@ -1117,7 +1137,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 960161378}
-  - {fileID: 3290106719046593908}
   - {fileID: 699238144}
   - {fileID: 1447208775}
   - {fileID: 1465032842}
@@ -1126,3 +1145,4 @@ SceneRoots:
   - {fileID: 2070227615}
   - {fileID: 1081248369}
   - {fileID: 191830201}
+  - {fileID: 3290106719046593908}

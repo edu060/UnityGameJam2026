@@ -13,6 +13,31 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAudiosSO
   FootSteps: []
-  Attack: []
+  Attack:
+  - Clip: {fileID: 8300000, guid: 4687777e44ee3d5499fac7166034fba2, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  Reload:
+  - Clip: {fileID: 8300000, guid: 5df8a312f43cd41459a597db59f400f4, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  LastBullet:
+  - Clip: {fileID: 8300000, guid: f50f7dc1fd1cbaa46b8488130bcab34c, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  StartReload:
+  - Clip: {fileID: 8300000, guid: 0fb1176f1c3f20d4ab70b19ed0007e45, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  EndReload:
+  - Clip: {fileID: 8300000, guid: 8902d9d9c16dad14d8f51aac7504b2fa, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
   Hurt: []
+  Cure: []
   Death: []

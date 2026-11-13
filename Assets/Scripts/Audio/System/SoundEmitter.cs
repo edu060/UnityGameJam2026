@@ -20,12 +20,12 @@ public class SoundEmitter : MonoBehaviour, IPoolable
 
     public void OnDespawned()
     {
-        throw new System.NotImplementedException();
+        DoStop();
     }
 
     public void OnSpawned()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Play()
@@ -55,6 +55,18 @@ public class SoundEmitter : MonoBehaviour, IPoolable
     public void WithRandomPitch(float min = -0.05f, float max = 0.05f)
     {
         _audioSource.pitch += Random.Range(min, max);
+    }
+
+    private void DoStop()
+    {
+        if (_playingCoroutine != null)
+        {
+            StopCoroutine(_playingCoroutine);
+        }
+
+        _audioSource.Stop();
+
+        StopAllCoroutines();
     }
 
     private IEnumerator WaitForSoundToEnd()
