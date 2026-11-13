@@ -17,6 +17,11 @@ public class HealthController : MonoBehaviour, IDamageable
     public float HealthPerCent => _health / _maxHealth;
     public bool CheckFullLife => _health >= _maxHealth;
 
+    private void Start()
+    {
+        ResetHealth();
+    }
+
     public void SetMaxHealth(float maxHealth)
     {
         _maxHealth = maxHealth;
@@ -41,7 +46,21 @@ public class HealthController : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage, Vector3 position, float KnockbackStrenght)
     {
+        Debug.Log(damage);
         _health -= damage;
-        OnLoseHealth?.Invoke();
+
+        if(_health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            OnLoseHealth?.Invoke();
+        }
+    }
+
+    private void Die()
+    {
+        OnDie?.Invoke();
     }
 }
