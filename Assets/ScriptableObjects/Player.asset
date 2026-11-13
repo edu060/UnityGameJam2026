@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6411769fdf56e0b4e8b7a9e79d28ed28, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAudiosSO
+  FootSteps:
+  - Clip: {fileID: 8300000, guid: 1484abe5cffeeea47a13bd75e17ac020, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: ddf0cc8a8c129de4fb6d326c45f0a7b8, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  Attack:
+  - Clip: {fileID: 8300000, guid: 4687777e44ee3d5499fac7166034fba2, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  Reload:
+  - Clip: {fileID: 8300000, guid: 5df8a312f43cd41459a597db59f400f4, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  LastBullet:
+  - Clip: {fileID: 8300000, guid: f50f7dc1fd1cbaa46b8488130bcab34c, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  StartReload:
+  - Clip: {fileID: 8300000, guid: 0fb1176f1c3f20d4ab70b19ed0007e45, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  EndReload:
+  - Clip: {fileID: 8300000, guid: 8902d9d9c16dad14d8f51aac7504b2fa, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  Hurt: []
+  Cure: []
+  Death: []

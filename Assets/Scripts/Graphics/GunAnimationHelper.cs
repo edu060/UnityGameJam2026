@@ -3,6 +3,7 @@ using UnityEngine;
 public class GunAnimationHelper : MonoBehaviour
 {
     [SerializeField] private GunAnimation _gunAnimation;
+    [SerializeField] private CharacterAudioHandler _characterAudioHandler;
 
     public void EndShoot()
     {
@@ -18,6 +19,7 @@ public class GunAnimationHelper : MonoBehaviour
     {
         _gunAnimation.ReloadOneBullet();
 
+        _characterAudioHandler.ReloadOneBullet();
         // Play PlaceBullet Sound
     }
 
@@ -25,6 +27,7 @@ public class GunAnimationHelper : MonoBehaviour
     {
         _gunAnimation.ReloadOneBullet(true);
 
+        _characterAudioHandler.ReloadLastBullet();
         // Play LastBullet Sound
     }
 

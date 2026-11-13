@@ -50,6 +50,10 @@ MonoBehaviour:
     Prefab: {fileID: 7894706136486339261, guid: 074331a8467b7ef408a7c99ca5534a70, type: 3}
     InitialSize: 5
     MaxSize: 20
+  - Id: SoundEmitter
+    Prefab: {fileID: 7207814165954325262, guid: 6680dfb1f01e79e459692d765b7c40b9, type: 3}
+    InitialSize: 5
+    MaxSize: 20
 --- !u!114 &6069342363108914006
 MonoBehaviour:
   m_ObjectHideFlags: 0
