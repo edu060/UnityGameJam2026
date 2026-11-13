@@ -9,9 +9,6 @@ public class BillboardCharacter : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private SpriteResolver _spriteResolver;
 
-    [Header("Sprites")]
-    [SerializeField] private CharacterSprites _sprites;
-
     private void LateUpdate()
     {
         UpdateSprite();
@@ -37,27 +34,27 @@ public class BillboardCharacter : MonoBehaviour
 
         if (angle < 30f || angle >= 330f)
         {
-            _spriteRenderer.sprite = _sprites.Front;
+            _spriteResolver.SetCategoryAndLabel(OrientationData.Front, _spriteResolver.GetLabel());
         }
         else if (angle < 90f)
         {
-            _spriteRenderer.sprite = _sprites.FrontLeft;
+            _spriteResolver.SetCategoryAndLabel(OrientationData.FrontRight, _spriteResolver.GetLabel());
         }
         else if (angle < 150f)
         {
-            _spriteRenderer.sprite = _sprites.BackLeft;
+            _spriteResolver.SetCategoryAndLabel(OrientationData.BackRight, _spriteResolver.GetLabel());
         }
         else if (angle < 210f)
         {
-            _spriteRenderer.sprite = _sprites.Back;
+            _spriteResolver.SetCategoryAndLabel(OrientationData.Back, _spriteResolver.GetLabel());
         }
         else if (angle < 270f)
         {
-            _spriteRenderer.sprite = _sprites.BackRight;
+            _spriteResolver.SetCategoryAndLabel(OrientationData.BackLeft, _spriteResolver.GetLabel());
         }
         else
         {
-            _spriteRenderer.sprite = _sprites.FrontRight;
+            _spriteResolver.SetCategoryAndLabel(OrientationData.FrontLeft, _spriteResolver.GetLabel());
         }
     }
 
