@@ -28,6 +28,8 @@ public class EnemySpawnerManager : MonoBehaviour
 
     private string _enemyToSpawn = "";
 
+    public int EnemiesKilledAmount => _enemiesKilledAmount;
+
     public void NotifyDeath(string enemyName)
     {
         _enemiesAmount--;

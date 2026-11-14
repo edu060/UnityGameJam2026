@@ -880,7 +880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1128243157
 Transform:
   m_ObjectHideFlags: 0
@@ -915,6 +915,10 @@ MonoBehaviour:
   - {fileID: 726118030}
   - {fileID: 276461231}
   - {fileID: 1454396074}
+  _maxEnemies: 4
+  _spawnSpacing: 2
+  _maxEnemiesSpawnedPerRow: 3
+  _samePlaceSpawning: 0
 --- !u!1 &1136276918
 GameObject:
   m_ObjectHideFlags: 0
