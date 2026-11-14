@@ -53,6 +53,13 @@ public class Bomber : Enemy
         EnemyType = "67 Guy";
     }
 
+    protected override void Reset()
+    {
+        base.Reset();
+
+        _state = State.Idle;
+    }
+
     protected override void UpdateBehavior()
     {
         if (_state == State.Idle && TargetDetected) _state = State.Chasing;

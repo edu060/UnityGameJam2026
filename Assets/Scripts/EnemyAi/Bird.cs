@@ -43,6 +43,18 @@ public class Bird : Enemy
         ChooseRoamDestination();
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
+
+        state = State.Roaming;
+    }
+
     protected override void UpdateBehavior()
     {
         switch (state)

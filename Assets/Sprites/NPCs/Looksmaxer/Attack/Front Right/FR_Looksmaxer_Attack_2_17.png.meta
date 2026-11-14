@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: 1061a76702566544285546f2aa4de491
+guid: 6e5a082c2a4148c4680ef8ec712c923e
 TextureImporter:
   internalIDToNameTable:
   - first:
-<<<<<<<< HEAD:Assets/UI/Art/BulletTypes/T_Bullet_Icon.png.meta
-      213: 6715855885820710789
-    second: T_Bullet_Icon_0
-========
-      213: -6214830091296569221
-    second: F_Looksmaxer_Attack_2_04_0
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_04.png.meta
+      213: 6515051797750969062
+    second: FR_Looksmaxer_Attack_2_17_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,11 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<<< HEAD:Assets/UI/Art/BulletTypes/T_Bullet_Icon.png.meta
-  spriteMode: 2
-========
   spriteMode: 1
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_04.png.meta
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 7
@@ -111,22 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-<<<<<<<< HEAD:Assets/UI/Art/BulletTypes/T_Bullet_Icon.png.meta
-      name: T_Bullet_Icon_0
-========
-      name: F_Looksmaxer_Attack_2_04_0
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_04.png.meta
+      name: FR_Looksmaxer_Attack_2_17_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-<<<<<<<< HEAD:Assets/UI/Art/BulletTypes/T_Bullet_Icon.png.meta
-        width: 64
-        height: 64
-========
         width: 1024
         height: 1024
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_04.png.meta
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,13 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-<<<<<<<< HEAD:Assets/UI/Art/BulletTypes/T_Bullet_Icon.png.meta
-      spriteID: 58f4f059853833d50800000000000000
-      internalID: 6715855885820710789
-========
-      spriteID: b780cd4a5fc70c9a0800000000000000
-      internalID: -6214830091296569221
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_04.png.meta
+      spriteID: 6e27732871d1a6a50800000000000000
+      internalID: 6515051797750969062
       vertices: []
       indices: 
       edges: []
@@ -159,8 +136,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      T_Bullet_Icon_0: 6715855885820710789
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

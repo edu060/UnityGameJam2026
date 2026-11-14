@@ -48,9 +48,15 @@ public abstract class Enemy : MonoBehaviour, IPoolable
         
     }
 
+    protected virtual void Reset()
+    {
+        //Halt();
+    }
+
     private void OnEnable()
     {
         SubscribeToEvents();
+        Reset();
     }
 
     private void OnDisable()

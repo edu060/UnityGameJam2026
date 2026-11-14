@@ -5,35 +5,50 @@ public class Imp : Enemy
     private enum State { Patrolling, Waiting, Chasing, Attacking }
 
     [Header("Patrol")]
-    [SerializeField] private float patrolRadius = 8f;
-    [SerializeField] private float waitTime = 2f;
+    [SerializeField] private float _patrolRadius = 8f;
+    [SerializeField] private float _waitTime = 2f;
 
     [Header("Combat")]
-    [SerializeField] private float attackRange = 8f;
-    [SerializeField] private float attackCooldown = 2f;
+    [SerializeField] private NpcGun _gun;
+    [SerializeField] private float _attackRange = 8f;
+    [SerializeField] private float _attackCooldown = 2f;
 
-    [Header("Projectile")]
-    [SerializeField] private Transform projectileSpawn;
-    [SerializeField] private GameObject projectile;
+    //[Header("Projectile")]
+    //[SerializeField] private Transform _projectileSpawn;
+    //[SerializeField] private GameObject _projectile;
 
-    private State state = State.Patrolling;
-    private Vector3 patrolCenter;
-    private float waitTimer;
-    private float nextAttackTime;
+    private State _state = State.Patrolling;
+    private Vector3 _patrolCenter;
+    private float _waitTimer;
+    private float _nextAttackTime;
 
-    private bool InCombat => state == State.Chasing || state == State.Attacking;
+    private bool InCombat => _state == State.Chasing || _state == State.Attacking;
 
     private void Start()
     {
-        patrolCenter = transform.position;
+        _patrolCenter = transform.position;
         ChoosePatrolDestination();
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        EnemyType = "Looksmaxxer";
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
+
+        _state = State.Patrolling;
     }
 
     protected override void UpdateBehavior()
     {
         if (TargetDetected && !InCombat)
         {
-            state = State.Chasing;
+            _state = State.Chasing;
             SetMoving(true);
         }
         else if (!TargetDetected && InCombat)
@@ -41,7 +56,7 @@ public class Imp : Enemy
             ChoosePatrolDestination();
         }
 
-        switch (state)
+        switch (_state)
         {
             case State.Patrolling: HandlePatrolling(); break;
             case State.Waiting: HandleWaiting(); break;
@@ -56,23 +71,23 @@ public class Imp : Enemy
 
         if (HasReachedDestination())
         {
-            state = State.Waiting;
-            waitTimer = waitTime;
+            _state = State.Waiting;
+            _waitTimer = _waitTime;
             SetMoving(false);
         }
     }
 
     private void HandleWaiting()
     {
-        waitTimer -= Time.deltaTime;
-        if (waitTimer <= 0f) ChoosePatrolDestination();
+        _waitTimer -= Time.deltaTime;
+        if (_waitTimer <= 0f) ChoosePatrolDestination();
     }
 
     private void HandleChasing()
     {
-        if (TargetDistance <= attackRange)
+        if (TargetDistance <= _attackRange)
         {
-            state = State.Attacking;
+            _state = State.Attacking;
             SetMoving(false);
             return;
         }
@@ -83,43 +98,45 @@ public class Imp : Enemy
 
     private void HandleAttacking()
     {
-        if (TargetDistance > attackRange)
+        if (TargetDistance > _attackRange)
         {
-            state = State.Chasing;
+            _state = State.Chasing;
             SetMoving(true);
             return;
         }
 
         FacePlayer();
 
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= _nextAttackTime)
         {
-            nextAttackTime = Time.time + attackCooldown;
+            _nextAttackTime = Time.time + _attackCooldown;
             Attack();
         }
     }
 
     private void ChoosePatrolDestination()
     {
-        if (RandomNavMeshPosition(patrolCenter, patrolRadius, out Vector3 destination))
+        if (RandomNavMeshPosition(_patrolCenter, _patrolRadius, out Vector3 destination))
         {
             SetDestination(destination);
             SetMoving(true);
-            state = State.Patrolling;
+            _state = State.Patrolling;
         }
         else
         {
-            state = State.Waiting;
-            waitTimer = waitTime;
+            _state = State.Waiting;
+            _waitTimer = _waitTime;
         }
     }
 
     private void Attack()
     {
-        if (projectile == null || projectileSpawn == null) return;
+        _gun.RequestShoot();
 
-        Vector3 origin = projectileSpawn.position;
-        Quaternion aim = Quaternion.LookRotation(Target.position - origin);
-        Instantiate(projectile, origin, aim);
+        //if (_projectile == null || _projectileSpawn == null) return;
+
+        //Vector3 origin = _projectileSpawn.position;
+        //Quaternion aim = Quaternion.LookRotation(Target.position - origin);
+        //Instantiate(_projectile, origin, aim);
     }
 }

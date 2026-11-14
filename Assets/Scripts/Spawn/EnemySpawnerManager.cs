@@ -17,11 +17,13 @@ public class EnemySpawnerManager : MonoBehaviour
     }
     private IEnumerator Wait()
     {
-        while (true)
-        {
-            SpawnEnemy();
-            yield return new WaitForSeconds(5f);
-        }
+        SpawnEnemy();
+        yield return null;
+
+        //while (true)
+        //{
+        //    yield return new WaitForSeconds(5f);
+        //}
     }
 
     private void HandleEnemyDied(string enemyType)
@@ -55,7 +57,7 @@ public class EnemySpawnerManager : MonoBehaviour
     {
         int randomSpawn = Random.Range(0, _listOfSpawns.Count);
 
-        Enemy newEnemy = (ObjectPoolManager.Instance.Spawn(PoolsNames.Bomber, _listOfSpawns[randomSpawn].position, _listOfSpawns[randomSpawn].transform.rotation)).GetComponent<Enemy>();
+        Enemy newEnemy = (ObjectPoolManager.Instance.Spawn(PoolsNames.Imp, _listOfSpawns[randomSpawn].position, _listOfSpawns[randomSpawn].transform.rotation)).GetComponent<Enemy>();
 
         return newEnemy;
     }

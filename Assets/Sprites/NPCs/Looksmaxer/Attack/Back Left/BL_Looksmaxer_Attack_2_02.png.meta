@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: b1cd10c8317c7594f818669ddac79623
+guid: 21c83b06189225242a0b84fa3b9b867e
 TextureImporter:
   internalIDToNameTable:
   - first:
-<<<<<<<< HEAD:Assets/UI/Art/UI_Art/T_Gun_Icon.png.meta
-      213: 6342286013075044890
-    second: T_Gun_Icon_0
-========
-      213: 1906973632199761864
-    second: F_Looksmaxer_Attack_2_01_0
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_01.png.meta
+      213: -8221145426846478079
+    second: BL_Looksmaxer_Attack_2_02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,11 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<<< HEAD:Assets/UI/Art/UI_Art/T_Gun_Icon.png.meta
-  spriteMode: 2
-========
   spriteMode: 1
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_01.png.meta
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 7
@@ -111,11 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-<<<<<<<< HEAD:Assets/UI/Art/UI_Art/T_Gun_Icon.png.meta
-      name: T_Gun_Icon_0
-========
-      name: F_Looksmaxer_Attack_2_01_0
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_01.png.meta
+      name: BL_Looksmaxer_Attack_2_02_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,13 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-<<<<<<<< HEAD:Assets/UI/Art/UI_Art/T_Gun_Icon.png.meta
-      spriteID: a1a3449a683540850800000000000000
-      internalID: 6342286013075044890
-========
-      spriteID: 8cf9d473a6ee67a10800000000000000
-      internalID: 1906973632199761864
->>>>>>>> main:Assets/Sprites/NPCs/Looksmaxer/Attack/F_Looksmaxer_Attack_2_01.png.meta
+      spriteID: 1011df1bacf98ed80800000000000000
+      internalID: -8221145426846478079
       vertices: []
       indices: 
       edges: []
@@ -154,8 +136,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      T_Gun_Icon_0: 6342286013075044890
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
