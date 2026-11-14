@@ -11,76 +11,85 @@ public class Bomber : Enemy
         Fusing, 
         Exploded 
     }
+    public UnityEvent OnFuseStarted;
 
-    private const int MaxBlastHits = 64;
+    private const int _maxBlastHits = 64;
 
-    private static readonly Collider[] BlastHits = new Collider[MaxBlastHits];
-    private static readonly Dictionary<Damageable, float> BlastDamage = new();
+    private static readonly Collider[] _blastHits = new Collider[_maxBlastHits];
+    private static readonly Dictionary<IDamageable, float> _blastDamage = new();
 
     [Header("Behaviour")]
-    [SerializeField] private bool keepChasingWhenOutOfRange = true;
+    [SerializeField] private bool _keepChasingWhenOutOfRange = true;
 
     [Header("Fuse")]
-    [SerializeField] private float TriggerDistance = 2f;
-    [SerializeField] private float fuseTime = 0.5f;
-    [SerializeField] private float chainReactionDelay = 0.1f;
-    [SerializeField] private UnityEvent onFuseStarted;
+    [SerializeField] private float _triggerDistance = 2f;
+    [SerializeField] private float _fuseTime = 0.5f;
+    [SerializeField] private float _chainReactionDelay = 0.1f;
 
     [Header("Explosion")]
-    [SerializeField] private float explosionRadius = 5f;
-    [SerializeField] private float explosionDamage = 50f;
-    [SerializeField] private float edgeDamageMultiplier = 0.25f;
-    [SerializeField] private float explosionHeight = 1f;
-    [SerializeField] private LayerMask damageMask = ~0;
-    [SerializeField] private LayerMask blastBlockingMask = ~0;
-    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private float _explosionRadius = 5f;
+    [SerializeField] private float _explosionDamage = 50f;
+    [SerializeField] private float _edgeDamageMultiplier = 0.25f;
+    [SerializeField] private float _explosionHeight = 1f;
+    [SerializeField] private LayerMask _damageMask = ~0;
+    [SerializeField] private LayerMask _blastBlockingMask = ~0;
+    [SerializeField] private GameObject _explosionEffect;
 
-    private State state = State.Idle;
-    private float explodeTime;
+    private State _state = State.Idle;
+    private float _explodeTime;
 
-    private Vector3 ExplosionOrigin => transform.position + Vector3.up * explosionHeight;
+    private Vector3 ExplosionOrigin => transform.position + Vector3.up * _explosionHeight;
 
     protected override void Awake()
     {
         base.Awake();
 
-        if (Agent.stoppingDistance >= TriggerDistance)
+        if (Agent.stoppingDistance >= _triggerDistance)
         {
             Debug.LogWarning($"{name}: stopping distance must be smaller than TriggerDistance. Clamping it.", this);
-            Agent.stoppingDistance = TriggerDistance * 0.5f;
+            Agent.stoppingDistance = _triggerDistance * 0.5f;
         }
+
+        EnemyType = "67 Guy";
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
+
+        _state = State.Idle;
     }
 
     protected override void UpdateBehavior()
     {
-        if (state == State.Idle && TargetDetected) state = State.Chasing;
-        if (state == State.Chasing) HandleChasing();
+        if (_state == State.Idle && TargetDetected) _state = State.Chasing;
+        if (_state == State.Chasing) HandleChasing();
     }
 
     public void Alert()
     {
-        if (state == State.Idle) state = State.Chasing;
+        if (_state == State.Idle) _state = State.Chasing;
     }
 
     // Idealmente tem que ser chamada na morte do inimigo
     public void Detonate()
     {
-        if (state != State.Exploded) StartFuse(chainReactionDelay, notify: false);
+        if (_state != State.Exploded) StartFuse(_chainReactionDelay, notify: false);
     }
 
     // ---------- States ----------
     private void HandleChasing()
     {
-        if (!TargetDetected && !keepChasingWhenOutOfRange)
+        if (!TargetDetected && !_keepChasingWhenOutOfRange)
         {
-            state = State.Idle;
+            _state = State.Idle;
             Halt();
             return;
         }
 
-        if (TargetDistance <= TriggerDistance)
+        if (TargetDistance <= _triggerDistance)
         {
-            StartFuse(fuseTime, notify: true);
+            StartFuse(_fuseTime, notify: true);
             return;
         }
 
@@ -92,17 +101,17 @@ public class Bomber : Enemy
     {
         float newExplodeTime = Time.time + duration;
 
-        if (state == State.Fusing)
+        if (_state == State.Fusing)
         {
-            explodeTime = Mathf.Min(explodeTime, newExplodeTime);
+            _explodeTime = Mathf.Min(_explodeTime, newExplodeTime);
             return;
         }
 
-        state = State.Fusing;
-        explodeTime = newExplodeTime;
+        _state = State.Fusing;
+        _explodeTime = newExplodeTime;
         Halt();
 
-        if (notify) onFuseStarted?.Invoke();
+        if (notify) OnFuseStarted?.Invoke();
 
         StartCoroutine(FuseRoutine());
     }
@@ -114,7 +123,7 @@ public class Bomber : Enemy
             FacePlayer();
             yield return null;
         }
-        while (Time.time < explodeTime);
+        while (Time.time < _explodeTime);
 
         Explode();
     }
@@ -122,27 +131,27 @@ public class Bomber : Enemy
     // ---------- Explosion ----------
     private void Explode()
     {
-        state = State.Exploded;
+        _state = State.Exploded;
 
         Vector3 origin = ExplosionOrigin;
 
-        if (explosionEffect != null)
+        if (_explosionEffect != null)
         {
-            Instantiate(explosionEffect, origin, Quaternion.identity);
+            Instantiate(_explosionEffect, origin, Quaternion.identity);
         }
 
-        int hitCount = Physics.OverlapSphereNonAlloc(origin, explosionRadius, BlastHits, damageMask, QueryTriggerInteraction.Collide);
+        int hitCount = Physics.OverlapSphereNonAlloc(origin, _explosionRadius, _blastHits, _damageMask, QueryTriggerInteraction.Collide);
 
-        BlastDamage.Clear();
+        _blastDamage.Clear();
 
         for (int i = 0; i < hitCount; i++)
         {
-            Collider hit = BlastHits[i];
-            BlastHits[i] = null;
+            Collider hit = _blastHits[i];
+            _blastHits[i] = null;
 
             if (hit.transform.IsChildOf(transform)) continue;
 
-            Damageable target = hit.GetComponentInParent<Damageable>();
+            IDamageable target = hit.GetComponentInParent<IDamageable>();
             if (target == null) continue;
 
             Vector3 closestPoint = GetClosestPoint(hit, origin);
@@ -150,25 +159,28 @@ public class Bomber : Enemy
 
             float damage = CalculateDamage(Vector3.Distance(origin, closestPoint));
 
-            if (!BlastDamage.TryGetValue(target, out float current) || damage > current)
+            if (!_blastDamage.TryGetValue(target, out float current) || damage > current)
             {
-                BlastDamage[target] = damage;
+                _blastDamage[target] = damage;
             }
         }
 
-        foreach (KeyValuePair<Damageable, float> entry in BlastDamage)
+        foreach (KeyValuePair<IDamageable, float> entry in _blastDamage)
         {
-            if (entry.Key != null) entry.Key.TakeDamage(entry.Value, gameObject);
+            if (entry.Key != null)
+            {
+                entry.Key.TakeDamage(entry.Value, transform.position, 0);
+            }
         }
 
-        BlastDamage.Clear();
-        Destroy(gameObject);
+        _blastDamage.Clear();
+        Die();
     }
 
     private float CalculateDamage(float distance)
     {
-        float t = Mathf.Clamp01(distance / explosionRadius);
-        return explosionDamage * Mathf.Lerp(1f, edgeDamageMultiplier, t);
+        float t = Mathf.Clamp01(distance / _explosionRadius);
+        return _explosionDamage * Mathf.Lerp(1f, _edgeDamageMultiplier, t);
     }
 
     private static Vector3 GetClosestPoint(Collider collider, Vector3 point)
@@ -183,7 +195,7 @@ public class Bomber : Enemy
 
     private bool IsBlastBlocked(Vector3 origin, Vector3 point)
     {
-        if (!Physics.Linecast(origin, point, out RaycastHit hit, blastBlockingMask, QueryTriggerInteraction.Ignore))
+        if (!Physics.Linecast(origin, point, out RaycastHit hit, _blastBlockingMask, QueryTriggerInteraction.Ignore))
         {
             return false;
         }

@@ -43,6 +43,18 @@ public class Bird : Enemy
         ChooseRoamDestination();
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
+
+        state = State.Roaming;
+    }
+
     protected override void UpdateBehavior()
     {
         switch (state)
@@ -95,7 +107,7 @@ public class Bird : Enemy
         stateTimer -= Time.deltaTime;
         if (stateTimer > 0f) return;
 
-        Vector3 toPlayer = Player.position - transform.position;
+        Vector3 toPlayer = Target.position - transform.position;
         toPlayer.y = 0f;
 
         chargeDirection = toPlayer.sqrMagnitude > 0.001f ? toPlayer.normalized : transform.forward;

@@ -1,73 +1,131 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IPoolable
 {
+    [Header("Components")]
+    [SerializeField] private HealthController _healthController;
+
     [Header("Target")]
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform _target;
 
     [Header("Perception")]
-    [SerializeField, Min(0f)] private float detectionRange = 15f;
+    [SerializeField, Min(0f)] private float _detectionRange = 15f;
 
     [Header("Movement")]
-    [SerializeField, Min(0f)] private float repathInterval = 0.2f;
-    [SerializeField, Min(0f)] private float turnSpeed = 360f;
+    [SerializeField, Min(0f)] private float _repathInterval = 0.2f;
+    [SerializeField, Min(0f)] private float _turnSpeed = 360f;
 
     protected NavMeshAgent Agent { get; private set; }
-    protected Transform Player => player;
+    protected Transform Target => _target;
+
+    private float _nextRepathTime;
 
     protected float TargetDistance { get; private set; } = float.PositiveInfinity;
-    protected bool TargetDetected => TargetDistance <= detectionRange;
+    protected bool TargetDetected => TargetDistance <= _detectionRange;
     protected bool AgentReady => Agent.isActiveAndEnabled && Agent.isOnNavMesh;
 
-    private float nextRepathTime;
+
+    public string EnemyType { get; protected set; }
 
     protected virtual void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
         Agent.updateRotation = false;
 
-        if (player == null && !string.IsNullOrEmpty("Player"))
+        if (_target == null && !string.IsNullOrEmpty("Player"))
         {
             GameObject found = GameObject.FindGameObjectWithTag("Player");
-            if (found != null) player = found.transform;
+            if (found != null) _target = found.transform;
         }
+
+        if(_healthController == null)
+        {
+            _healthController.GetComponent<HealthController>();
+        }
+        
+    }
+
+    protected virtual void Reset()
+    {
+        //Halt();
+    }
+
+    private void OnEnable()
+    {
+        SubscribeToEvents();
+        Reset();
+    }
+
+    private void OnDisable()
+    {
+        UnSubscribeToEvents();
     }
 
     protected virtual void Update()
     {
-        if (player == null)
+        if (_target == null)
         {
             TargetDistance = float.PositiveInfinity;
             return;
         }
 
-        TargetDistance = Vector3.Distance(transform.position, player.position);
+        TargetDistance = Vector3.Distance(transform.position, _target.position);
         UpdateBehavior();
+    }
+
+    public void OnSpawned()
+    {
+        Debug.Log("Spawned");
+        _healthController.ResetHealth();
+    }
+
+    public void OnDespawned()
+    {
+        Debug.Log("Despawned");
+
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
+
+    protected virtual void SubscribeToEvents()
+    {
+        _healthController.OnDie += Die;
+    }
+
+    protected virtual void UnSubscribeToEvents()
+    {
+        _healthController.OnDie -= Die;
+    }
+    protected void Die()
+    {
+        ObjectPoolManager.Instance.Despawn(gameObject);
     }
 
     protected abstract void UpdateBehavior();
 
-    public void SetTarget(Transform target) => player = target;
-
     // ---------- Movement ----------
     protected void MoveTo(Vector3 destination)
     {
-        if (Time.time >= nextRepathTime) SetDestination(destination);
+        if (Time.time >= _nextRepathTime) SetDestination(destination);
     }
 
     protected void SetDestination(Vector3 destination)
     {
         if (!AgentReady) return;
 
-        nextRepathTime = Time.time + repathInterval;
+        _nextRepathTime = Time.time + _repathInterval;
         Agent.SetDestination(destination);
     }
 
     protected void MoveToPlayer()
     {
-        if (player != null) MoveTo(player.position);
+        if (_target != null) MoveTo(_target.position);
     }
 
     protected void SetMoving(bool moving)
@@ -91,7 +149,7 @@ public abstract class Enemy : MonoBehaviour
     // ---------- Rotation ----------
     protected void FacePlayer()
     {
-        if (player != null) FaceDirection(player.position - transform.position);
+        if (_target != null) FaceDirection(_target.position - transform.position);
     }
 
     protected void FaceDirection(Vector3 direction)
@@ -100,7 +158,7 @@ public abstract class Enemy : MonoBehaviour
         if (direction.sqrMagnitude < 0.001f) return;
 
         Quaternion target = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, target, turnSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, target, _turnSpeed * Time.deltaTime);
     }
 
     // ---------- Utilities ----------

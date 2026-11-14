@@ -54,6 +54,22 @@ MonoBehaviour:
     Prefab: {fileID: 7207814165954325262, guid: 6680dfb1f01e79e459692d765b7c40b9, type: 3}
     InitialSize: 5
     MaxSize: 20
+  - Id: Bomber
+    Prefab: {fileID: 3116073671941510857, guid: 93dbe157f146e904d8c3cde83185e238, type: 3}
+    InitialSize: 5
+    MaxSize: 20
+  - Id: Imp
+    Prefab: {fileID: 5742294351037176626, guid: 7d9bb7a08932fd841a724caa2bb37a0b, type: 3}
+    InitialSize: 5
+    MaxSize: 20
+  - Id: Bird
+    Prefab: {fileID: 1362726673849561744, guid: 9e7f162b30d34784bb667d848e0daad2, type: 3}
+    InitialSize: 5
+    MaxSize: 20
+  - Id: MoggedBullet
+    Prefab: {fileID: 7894706136486339261, guid: 417a027cdff8c2d4e9107fef2696f495, type: 3}
+    InitialSize: 5
+    MaxSize: 20
 --- !u!114 &6069342363108914006
 MonoBehaviour:
   m_ObjectHideFlags: 0
