@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.UI.Image;
 
 public class Bomber : Enemy
 {
@@ -151,7 +152,7 @@ public class Bomber : Enemy
 
             if (hit.transform.IsChildOf(transform)) continue;
 
-            IDamageable target = hit.GetComponentInParent<IDamageable>();
+            IDamageable target = hit.GetComponent<IDamageable>();
             if (target == null) continue;
 
             Vector3 closestPoint = GetClosestPoint(hit, origin);
@@ -201,5 +202,10 @@ public class Bomber : Enemy
         }
 
         return hit.collider.GetComponentInParent<Damageable>() == null && !hit.transform.IsChildOf(transform);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(ExplosionOrigin, _explosionRadius);
     }
 }

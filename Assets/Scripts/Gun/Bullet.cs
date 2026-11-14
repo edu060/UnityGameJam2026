@@ -5,9 +5,9 @@ public class Bullet : MonoBehaviour, IPoolable
 {
     [Header("Components")]
     [SerializeField] private Collider _bulletCollider;
+    [SerializeField] private float _damage = 5f;
 
     private float _speed;
-    private float _damage = 5f;
     private float _knockbackStrenght;
 
     private bool _isExplosive = false;

@@ -82,8 +82,8 @@ MonoBehaviour:
   _triggerDistance: 2
   _fuseTime: 0.5
   _chainReactionDelay: 0.1
-  _explosionRadius: 5
-  _explosionDamage: 50
+  _explosionRadius: 50
+  _explosionDamage: 7
   _edgeDamageMultiplier: 0.25
   _explosionHeight: 1
   _damageMask:

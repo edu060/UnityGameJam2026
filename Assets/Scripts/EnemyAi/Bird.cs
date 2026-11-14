@@ -178,7 +178,7 @@ public class Bird : Enemy
             Collider hit = HitBuffer[i];
             if (hit.transform.IsChildOf(transform)) continue;
 
-            Damageable target = hit.GetComponentInParent<Damageable>();
+            Damageable target = hit.GetComponent<Damageable>();
             if (target == null) continue;
 
             target.TakeDamage(damage, gameObject);

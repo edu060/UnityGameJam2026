@@ -18,6 +18,8 @@ public class EndGameScene : MonoBehaviour
         _newGame.onClick.AddListener(NewGame);
         _mainMenu.onClick.AddListener(MainMenu);
         _quitGame.onClick.AddListener(QuitGame);
+
+        ShowResultText();
     }
 
     private void ShowResultText()
@@ -29,12 +31,12 @@ public class EndGameScene : MonoBehaviour
 
     private void NewGame()
     {
-        SceneManager.LoadScene("NewGame");
+        SceneManager.LoadScene("L_ShopingMall");
     }
 
     private void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("L_MainMenu");
     }
 
     private void QuitGame()

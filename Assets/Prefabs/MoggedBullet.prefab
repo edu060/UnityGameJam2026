@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   _bulletCollider: {fileID: 3607271354350760068}
+  _damage: 20
 --- !u!135 &3607271354350760068
 SphereCollider:
   m_ObjectHideFlags: 0
