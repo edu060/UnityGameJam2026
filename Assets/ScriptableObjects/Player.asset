@@ -13,39 +13,143 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAudiosSO
   FootSteps:
-  - Clip: {fileID: 8300000, guid: 1484abe5cffeeea47a13bd75e17ac020, type: 3}
+  - Clip: {fileID: 8300000, guid: 11fc130ff151de545886a04bc1689ea1, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
-  - Clip: {fileID: 8300000, guid: ddf0cc8a8c129de4fb6d326c45f0a7b8, type: 3}
+  - Clip: {fileID: 8300000, guid: 64ff56d69870a1c49bddcbe17077117a, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   Attack:
-  - Clip: {fileID: 8300000, guid: 4687777e44ee3d5499fac7166034fba2, type: 3}
+  - Clip: {fileID: 8300000, guid: d8296f6cc2ae63347a3c74f18767f2e9, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 454ccaf9042284e4ba6af50e33ad468c, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: f16d21e6a22d8014d882d31f6691d603, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   Reload:
-  - Clip: {fileID: 8300000, guid: 5df8a312f43cd41459a597db59f400f4, type: 3}
+  - Clip: {fileID: 8300000, guid: b6cf8ea523b23c04faf4b1984a149a06, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 1d604c403b5e75f4fbd4cf29ddd73316, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: a4bed28eb302f3147bf3413cc1f4a2d4, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   LastBullet:
-  - Clip: {fileID: 8300000, guid: f50f7dc1fd1cbaa46b8488130bcab34c, type: 3}
+  - Clip: {fileID: 8300000, guid: aa948fbae6170884392572800fdaad5f, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: c1ccbe590e479aa45bc42a4f9bab6e1a, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   StartReload:
-  - Clip: {fileID: 8300000, guid: 0fb1176f1c3f20d4ab70b19ed0007e45, type: 3}
+  - Clip: {fileID: 8300000, guid: c8f1312fd436bd144b7c8f0700c06cdc, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   EndReload:
-  - Clip: {fileID: 8300000, guid: 8902d9d9c16dad14d8f51aac7504b2fa, type: 3}
+  - Clip: {fileID: 8300000, guid: a2076290de08f884da937a558a79a9aa, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
-  Hurt: []
-  Cure: []
-  Death: []
+  Hurt:
+  - Clip: {fileID: 8300000, guid: 0c1da4aa876317b418c14acbcc878e21, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: e358f8389c2706a4fa556dfe6fb442ad, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 2809da940cc00644ca354783e6dcd37b, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: e721cf6bddd63b54888c52a4bfa92d0d, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: cf2b1dc1def1cbc4dbc3aa8dff493763, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 54ec0a957a1a2054c95420a2c9b0f911, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: de14480ba58dcf740aab462cb094af53, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 6f8e85eff6056ae438a3631f5313ab55, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 58496ca5e7f827845bcd592487c3d01b, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  Cure:
+  - Clip: {fileID: 8300000, guid: 2a4f78d4e0309ee4b9296f64c0624063, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 8ea3f15e3f589d049a1e9a689d13595b, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 3d3bb65cd8b9b354bbc8a305aafd992e, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: e613767e868bbc6468d547b0f4764e81, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 7c3a1d77a80541e4995fa40d173f1b35, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: ba6db33f6cdcd9248a94188fd32d510b, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 8cbb48c7a000d81449e34ee63067822a, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: fbe39f479c55b3447a3e9d318f83d9dd, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  Death:
+  - Clip: {fileID: 8300000, guid: bad49cae189e34b4ab2f0a785c36e4d1, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 734bb9d74c18be8428cdf5fbb61bf357, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 15888d4fcdf1eac47b2ed51d97920042, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 5fc89a7f49e08884ba30a1f980f68b70, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
