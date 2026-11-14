@@ -8,9 +8,9 @@ public class MenuController : MonoBehaviour
         Debug.Log("Lets Play!");
         // Carregar a cena que a gente vai usar.
         // Possível implementação:
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-        //SceneManager.LoadScene("Gun Testing");
+        SceneManager.LoadScene("L_ShopingMall");
     }
     
     public void QuitGame()
