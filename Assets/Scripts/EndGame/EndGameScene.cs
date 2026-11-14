@@ -27,6 +27,8 @@ public class EndGameScene : MonoBehaviour
         string newText = $"Results\n" +
             $"Total Score: {PointSystemData.LastTotalPoints}\n" +
             $"Max Score: {PointSystemData.MaxTotalPoints}";
+
+        _resultText.text = newText;
     }
 
     private void NewGame()

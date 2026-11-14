@@ -2904,7 +2904,7 @@ MonoBehaviour:
   - {fileID: 241268347}
   - {fileID: 1996112614}
   - {fileID: 2127784705}
-  _maxEnemies: 1
+  _maxEnemies: 10
   _spawnSpacing: 2
   _maxEnemiesSpawnedPerRow: 3
   _samePlaceSpawning: 0
