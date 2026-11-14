@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerWalkingAudioLoop : MonoBehaviour
 {
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private CharacterController _characterController;
     [SerializeField] private CharacterAudiosSO _audios;
     [SerializeField] private float _stepSize = 40;
 
@@ -14,23 +15,26 @@ public class PlayerWalkingAudioLoop : MonoBehaviour
 
     private void Update()
     {
-        _amountMoved += _playerMovement.Direction.magnitude;
+        if(_characterController.isGrounded)
+        {
+            _amountMoved += _playerMovement.Direction.magnitude;
 
-        if(_startMoving == false && _playerMovement.Direction.magnitude > 0.1f) // Start moving now
-        {
-            DoStep();
-            _startMoving = true;
-        }
-        else if(_amountMoved > _stepSize) // Moved enough to a new step
-        {
-            DoStep();
-            _amountMoved = 0;
-        }
-        else if(_playerMovement.Direction.magnitude <= 0.1f && _startMoving) // Stop Moving
-        {
-            DoStep();
-            _amountMoved = 0;
-            _startMoving = false;
+            if (_startMoving == false && _playerMovement.Direction.magnitude > 0.1f) // Start moving now
+            {
+                DoStep();
+                _startMoving = true;
+            }
+            else if (_amountMoved > _stepSize) // Moved enough to a new step
+            {
+                DoStep();
+                _amountMoved = 0;
+            }
+            else if (_playerMovement.Direction.magnitude <= 0.1f && _startMoving) // Stop Moving
+            {
+                DoStep();
+                _amountMoved = 0;
+                _startMoving = false;
+            }
         }
     }
 

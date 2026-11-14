@@ -509,6 +509,10 @@ PrefabInstance:
       propertyPath: _playerMovement
       value: 
       objectReference: {fileID: 6339841072560613343}
+    - target: {fileID: 5091422157073128246, guid: f6f4d19a421609546963d0351825982e, type: 3}
+      propertyPath: _characterController
+      value: 
+      objectReference: {fileID: 494103370762027770}
     - target: {fileID: 6445830008525290986, guid: f6f4d19a421609546963d0351825982e, type: 3}
       propertyPath: _gun
       value: 

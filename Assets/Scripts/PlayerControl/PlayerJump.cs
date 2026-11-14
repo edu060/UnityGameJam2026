@@ -1,8 +1,13 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
+    public UnityAction OnJump;
+    public UnityAction OnHitGround;
+
     [Header("Components")]
     [SerializeField] private CharacterController _characterController;
 
@@ -23,6 +28,7 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float _jumpBufferTime = 0.15f;
 
     private float _jumpBufferCounter;
+    private bool _wasGrounded;
 
     private void OnEnable()
     {
@@ -41,6 +47,22 @@ public class PlayerJump : MonoBehaviour
 
     public float CalculateVerticalVelocity()
     {
+        if ((_characterController.collisionFlags &
+            CollisionFlags.Above) != 0 && _verticalVelocity > 0f)
+        {
+            _verticalVelocity = 0f;
+        }
+
+        bool isGrounded = _characterController.isGrounded;
+
+        // Detect landing
+        if (isGrounded && !_wasGrounded && _verticalVelocity <= 0f)
+        {
+            OnHitGround?.Invoke();
+        }
+
+        _wasGrounded = isGrounded;
+
         if (_characterController.isGrounded && _verticalVelocity <= 0f)
         {
             _coyoteTimeCounter = _coyoteTime;
@@ -58,6 +80,8 @@ public class PlayerJump : MonoBehaviour
 
             _jumpBufferCounter = 0f;
             _coyoteTimeCounter = 0f;
+
+            OnJump?.Invoke();
         }
 
         _verticalVelocity += _gravity * Time.deltaTime;
