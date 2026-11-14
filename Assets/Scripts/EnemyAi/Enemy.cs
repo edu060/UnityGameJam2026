@@ -5,6 +5,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemy : MonoBehaviour, IPoolable
 {
+    public UnityAction OnDespawn;
+
     [Header("Components")]
     [SerializeField] private HealthController _healthController;
 
@@ -22,6 +24,8 @@ public abstract class Enemy : MonoBehaviour, IPoolable
     protected Transform Target => _target;
 
     private float _nextRepathTime;
+    private EnemySpawnerManager _spawnerManager;
+
 
     protected float TargetDistance { get; private set; } = float.PositiveInfinity;
     protected bool TargetDetected => TargetDistance <= _detectionRange;
@@ -29,6 +33,11 @@ public abstract class Enemy : MonoBehaviour, IPoolable
 
 
     public string EnemyType { get; protected set; }
+
+    public void SetSpawnManager(EnemySpawnerManager spawnerManager)
+    {
+        _spawnerManager = spawnerManager;
+    }
 
     protected virtual void Awake()
     {
@@ -104,6 +113,7 @@ public abstract class Enemy : MonoBehaviour, IPoolable
     }
     protected void Die()
     {
+        _spawnerManager.NotifyDeath(EnemyType);
         ObjectPoolManager.Instance.Despawn(gameObject);
     }
 
