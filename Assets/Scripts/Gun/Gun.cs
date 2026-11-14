@@ -17,6 +17,8 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private int _maxAmmo;
 
+    protected string BulletName;
+    
     private int _currentAmmo;
     private bool _canShoot = true;
     private bool _needReload = false;
@@ -39,10 +41,11 @@ public class Gun : MonoBehaviour
         Initialize();
     }
 
-    public void Initialize()
+    public virtual void Initialize()
     {
         CurrentAmmo = _maxAmmo;
         _canShoot = true;
+        BulletName = PoolsNames.Bullet;
     }
 
     public void HandleCanShoot()
@@ -79,7 +82,7 @@ public class Gun : MonoBehaviour
         if (!_canShoot || (costAmmo && CurrentAmmo <= 0))
             return null;
 
-        GameObject obj = ObjectPoolManager.Instance.Spawn(PoolsNames.Bullet, _shootingPoint.position, _shootingPoint.rotation);
+        GameObject obj = ObjectPoolManager.Instance.Spawn(BulletName, _shootingPoint.position, _shootingPoint.rotation);
         if (obj != null)
         {
             Bullet newBullet = obj.GetComponent<Bullet>();

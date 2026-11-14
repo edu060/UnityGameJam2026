@@ -57,10 +57,17 @@ public class NpcAnimationController : MonoBehaviour
         _animator.SetTrigger("Shoot");
     }
 
+    public void Shoot()
+    {
+        _gun.DoShoot();
+    }
+
     public void EndShoot()
     {
+        Debug.Log("Ended Aura Shoot");
         _spriteLibrary.spriteLibraryAsset = _walkingLibrary;
         _gun.OnEndShoot?.Invoke();
+        _animator.SetTrigger("EndShoot");
     }
 
     private void Die()

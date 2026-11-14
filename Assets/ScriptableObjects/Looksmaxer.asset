@@ -21,19 +21,31 @@ MonoBehaviour:
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
-  Attack: []
+  Attack:
+  - Clip: {fileID: 8300000, guid: 4d6d79efe6c1e334495c06ff372d315e, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 34eaee1d62e8c9d49b6f38e336c1a875, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
   Reload: []
   LastBullet: []
   StartReload: []
   EndReload: []
   Hurt:
-  - Clip: {fileID: 8300000, guid: 30c666db4d32d934a9042acb2e745324, type: 3}
+  - Clip: {fileID: 8300000, guid: 19f06c6eb74eca147ba141a5012930b7, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 8a9c638710d18684b8dabb646bd5f23e, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   Cure: []
   Death:
-  - Clip: {fileID: 8300000, guid: 752a0c72e72fbf8458158a0c0bb10673, type: 3}
+  - Clip: {fileID: 8300000, guid: 3994fab50c321724a9d7cd988a44267d, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0

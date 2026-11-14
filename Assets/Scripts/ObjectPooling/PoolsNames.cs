@@ -3,6 +3,7 @@ using UnityEngine;
 public static class PoolsNames
 {
     public static string Bullet = "Bullet";
+    public static string MoggedBullet = "MoggedBullet";
     public static string SoundEmitter = "SoundEmitter";
     public static string Bomber = "Bomber";
     public static string Bird = "Bird";

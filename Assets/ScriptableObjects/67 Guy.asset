@@ -21,19 +21,39 @@ MonoBehaviour:
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
-  Attack: []
+  Attack:
+  - Clip: {fileID: 8300000, guid: 1d38d8272a1e65c46afa8b85f639026f, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: cb493d848965e6d46917579425bc9ee8, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
   Reload: []
   LastBullet: []
   StartReload: []
   EndReload: []
   Hurt:
-  - Clip: {fileID: 8300000, guid: 68e7b10e881ee994a87121de7da12336, type: 3}
+  - Clip: {fileID: 8300000, guid: 867393a6b878f294cb7079c9314230fb, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 88dc889c375c6ab4ea04d577d4bd868b, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: d4cb1259899a54043bbbc79458be833d, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0
   Cure: []
   Death:
-  - Clip: {fileID: 8300000, guid: 752a0c72e72fbf8458158a0c0bb10673, type: 3}
+  - Clip: {fileID: 8300000, guid: 181a808bd70b7864bac9d70344c452d7, type: 3}
+    MixerGroup: {fileID: 0}
+    Loop: 0
+    PlayOnAweke: 0
+  - Clip: {fileID: 8300000, guid: 728590472b64b7148bd7ee3e330ac635, type: 3}
     MixerGroup: {fileID: 0}
     Loop: 0
     PlayOnAweke: 0

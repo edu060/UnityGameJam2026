@@ -112,7 +112,7 @@ MonoBehaviour:
   _waitTime: 2
   _gun: {fileID: 602953952557996927}
   _attackRange: 4
-  _attackCooldown: 2
+  _attackCooldown: 5
 --- !u!114 &5585198534803253166
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -815,58 +815,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[2].Id
-      value: Bomber
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[3].Id
-      value: Imp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[4].Id
-      value: Bird
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[2].Prefab
-      value: 
-      objectReference: {fileID: 3116073671941510857, guid: 93dbe157f146e904d8c3cde83185e238, type: 3}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[3].Prefab
-      value: 
-      objectReference: {fileID: 5742294351037176626, guid: 7d9bb7a08932fd841a724caa2bb37a0b, type: 3}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[4].Prefab
-      value: 
-      objectReference: {fileID: 1362726673849561744, guid: 9e7f162b30d34784bb667d848e0daad2, type: 3}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[2].MaxSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[3].MaxSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[4].MaxSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[2].InitialSize
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[3].InitialSize
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1124034179107515142, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
-      propertyPath: _poolConfigs.Array.data[4].InitialSize
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 6688663062754261783, guid: a56ae99078945bc4b9116e9bbf893b72, type: 3}
       propertyPath: m_Name
       value: '{System}'
